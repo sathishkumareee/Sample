@@ -4,7 +4,7 @@ import { Text, View } from 'react-native'
 const Activity:FC=()=>{
     return(
         <View>
-            <Text>jhg</Text>
+            <Text>Activity</Text>
         </View>
     )
 }
