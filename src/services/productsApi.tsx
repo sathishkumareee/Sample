@@ -20,11 +20,21 @@ export const productsApi=createApi({
                 url:`products/${id}`,
                 method:'GET'
             })
+        }),
+        postData: builder.mutation<ProductsInterface[],any>({
+            query:(values)=>({
+                url:'posts',
+                method:'POST',
+                body:values,
+                headers:{
+                    'content-type':'application/json'
+                }
+            })
         })
     })
 })
 
-export const{useGetProductsQuery,useGetProductsByIdQuery}=productsApi
+export const{useGetProductsQuery,useGetProductsByIdQuery,usePostDataMutation}=productsApi
 
 //default export
 // export const {endpoints,reducer,reducerPath,middleware}=productsApi

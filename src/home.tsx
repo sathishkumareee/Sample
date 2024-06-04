@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Text, StyleSheet, View, FlatList, Image,ActivityIndicator } from 'react-native';
-import { useGetProductsByIdQuery, useGetProductsQuery } from './services/productsApi';
+import { useGetProductsByIdQuery, useGetProductsQuery ,usePostDataMutation} from './services/productsApi';
 
 
 export default function Home() {
     const {data:productsData,error,isLoading,isFetching}=useGetProductsQuery()
+    const postdata={
+      name:'jkhg',
+      last:'jh',
+    }
     // const {data:dataById}=useGetProductsByIdQuery(1)
+    const [postData]=usePostDataMutation()
     console.log(productsData)
-
+  const onsubmit=(postdata:object)=>{  // when i click form data will send to server
+    postData(postdata)
+  }
 
   return (
     
